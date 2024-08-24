@@ -1,10 +1,26 @@
 <script>
-  import Counter from './lib/Counter.svelte'
-  const name = 'Svelte'
+
+  import Todolist from "./lib/TodoList.svelte";
+  import { v4 as uuid} from "uuid";
+
+  let todos = [
+    {
+      id: uuid(),
+      title: 'Todo 1',
+      completed: true
+    },
+    {
+      id: uuid(),
+      title: 'Todo 2',
+      completed: false
+    }
+  ];
+
 </script>
 
-<h1>Hello {name}!</h1>
-<Counter initialCount={3} maxCount={10}/>
+
+<h2>{todos.length} Todos</h2>
+<Todolist bind:todos />
 
 <style>
 
